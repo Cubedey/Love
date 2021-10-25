@@ -24,7 +24,7 @@ document.getElementById("attribute"+descriptors[descriptor]+x).remove()
 x=x-1
 
 }
-function getScore(person, weighted=true){
+function getScore(person, weighted){
     totaltop=0
     totalbottom=0
     weightedscore=0
@@ -49,7 +49,7 @@ function getScore(person, weighted=true){
         }
         weightedscore=totaltop/totalbottom
         score=score/3
-        if (weighted) return format(weightedscore)
+        if (weighted==true) return format(weightedscore)
         else return format(score)
     }
     if(person=="them") {
@@ -71,12 +71,12 @@ function getScore(person, weighted=true){
         }
         weightedscore=totaltop/totalbottom
         score=score/3
-        if (weighted) return format(weightedscore)
+        if (weighted==true) return format(weightedscore)
         else return format(score)
     }
 }
 function writepopupboxtext(){
-    document.getElementById("popup").innerHTML='<h1>RESULTS</h1>They view you as a '+getScore("u")+' out of 10! Good job, maybe?<br>You are actually a '+getScore("u",false)+' out of 10! Ew, perhaps?<br>They view themselves as a '+getScore("them")+' out of 10! OOOH smokin.<br>They are actually a '+getScore("them",false)+' out of 10! What a selfish catfish; am I right?<br>And now, the moment we have all been waiting for. The success change wooooooo.<br>You have a '+getsuccesschance()+'. Wooooooooooooooooooooo, hopefully.'
+    document.getElementById("popup").innerHTML='<h1>RESULTS</h1>They view you as a '+getScore("u",true)+' out of 10! Good job, maybe?<br>You are actually a '+getScore("u",false)+' out of 10! Ew, perhaps?<br>They view themselves as a '+getScore("them",true)+' out of 10! OOOH smokin.<br>They are actually a '+getScore("them",false)+' out of 10! What a selfish catfish; am I right?<br>And now, the moment we have all been waiting for. The success change wooooooo.<br>You have a '+getsuccesschance()+'. Wooooooooooooooooooooo, hopefully.'
 }
 function askfriendshiplevel(){
 friendshiplevel=prompt("Hey! One more thing. We need to know the friendship level between you and this person so please just enter it below. Based on this scale:\n1-Enemies\n2-Acquaintances\n3-New Friends\n4-Lost Contact Friends\n5-Friends\n6-Medium Friends\n7-Close Friends\n8-Best Friends\n9-They've Confessed Already\n10-Already Dating")
