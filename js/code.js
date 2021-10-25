@@ -24,7 +24,7 @@ document.getElementById("attribute"+descriptors[descriptor]+x).remove()
 x=x-1
 
 }
-function getScore(person, weighted){
+function getScore(person, weighted=false){
     totaltop=0
     totalbottom=0
     weightedscore=0
@@ -53,7 +53,6 @@ function getScore(person, weighted){
         else return format(score)
     }
     if(person=="them") {
-
         themvaluearray=[]
         importancearray=[]
         for (var i = 1; i <= x; i++) {
@@ -63,8 +62,8 @@ function getScore(person, weighted){
         for (value in themvaluearray) {
             totaltop=totaltop+themvaluearray[value]*importancearray[value]
         }
-        for (value in uvaluearray) {
-            score=score+uvaluearray[value]
+        for (value in themvaluearray) {
+            score=score+themvaluearray[value]
         }
         for (value in importancearray) {
             totalbottom=totalbottom+importancearray[value]
@@ -81,9 +80,9 @@ function writepopupboxtext(){
 function askfriendshiplevel(){
 friendshiplevel=prompt("Hey! One more thing. We need to know the friendship level between you and this person so please just enter it below. Based on this scale:\n1-Enemies\n2-Acquaintances\n3-New Friends\n4-Lost Contact Friends\n5-Friends\n6-Medium Friends\n7-Close Friends\n8-Best Friends\n9-They've Confessed Already\n10-Already Dating")
 }
-function format(x){
-    x.toFixed(2)
-    return x
+function format(num){
+    num=num.toFixed(2)
+    return num
 }
 function getsuccesschance(){
     return friendshiplevel*10*getScore("u")/getScore("them")+"%"
