@@ -1,4 +1,4 @@
-alert("Hello! Write in whatever attributes like intelligence,physical attractiveness etc... in the attributedesc boxes. In the first row put how the person you're testing with views you in that attribute out of ten. Then in the second row how they view themselves in the above attribute. In the third put what they believe the importance of that attribute is to them when finding someone to date. Once you are done click get results!")
+alert("Hello! Write in whatever attributes like intelligence,physical attractiveness etc... in the attributedesc boxes. In the first row put how the person you're testing with views you in that attribute out of ten. Then in the second row how they view themselves in the above attribute. In the third put what they believe the importance of that attribute is to them when finding someone to date. Once you are done click get results! This is not random and does actually have an intuative formula. Uh all results are final and totally correct.")
 x=0
 var descriptors=["desc","uvalue","themvalue","importance"]
 var startinnerhtml=["attributedesc",1,1,1]
@@ -87,4 +87,22 @@ function format(num){
 }
 function getsuccesschance(){
     return friendshiplevel*10*getScore("u")/getScore("them")+"%"
+}
+var numdescriptors=["uvalue","themvalue","importance"]
+
+function tick() {
+    for (y in numdescriptors) {
+    for (var i = 1; i <= x; i++) {
+        z=document.getElementById("attribute"+numdescriptors[y]+i).innerHTML 
+      if  (10<Number(z)) {
+        document.getElementById("attribute"+numdescriptors[y]+i).innerHTML=10
+      }
+      if  (1>Number(z) && z!="") {
+        document.getElementById("attribute"+numdescriptors[y]+i).innerHTML=1
+      }
+      if ((!Number.isInteger(Number(z))) && (z!="")) {
+        document.getElementById("attribute"+numdescriptors[y]+i).innerHTML=1
+      }
+    }
+}
 }
