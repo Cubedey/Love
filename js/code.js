@@ -76,10 +76,14 @@ function getScore(person, weighted=false){
     }
 }
 function writepopupboxtext(){
+    console.log('They view you as a '+getScore("u",true)+' out of 10! Good job, maybe?<br>')
     document.getElementById("popup").innerHTML='<h1>RESULTS</h1>They view you as a '+getScore("u",true)+' out of 10! Good job, maybe?<br>You are actually a '+getScore("u",false)+' out of 10! Ew, perhaps?<br>They view themselves as a '+getScore("them",true)+' out of 10! OOOH smokin.<br>They are actually a '+getScore("them",false)+' out of 10! What a selfish catfish; am I right?<br>And now, the moment we have all been waiting for. The success change wooooooo.<br>You have a '+getsuccesschance()+'. Wooooooooooooooooooooo, hopefully.'
+    document.getElementById("hover_bkgr_fricc").style.display="block"
+
 }
 function askfriendshiplevel(){
 friendshiplevel=prompt("Hey! One more thing. We need to know the friendship level between you and this person so please just enter it below. Based on this scale:\n1-Enemies\n2-Acquaintances\n3-New Friends\n4-Lost Contact Friends\n5-Friends\n6-Medium Friends\n7-Close Friends\n8-Best Friends\n9-They've Confessed Already\n10-Already Dating")
+writepopupboxtext()
 }
 function format(num){
     num=num.toFixed(2)
@@ -105,4 +109,7 @@ function tick() {
       }
     }
 }
+}
+function hide() {
+    document.getElementById("hover_bkgr_fricc").style.display="none"
 }

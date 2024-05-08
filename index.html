@@ -23,29 +23,20 @@
 <div id="attribute-importance-list" class="attribute-importance-list list">
     <div id="importancedesc" class="attributer">The Importance of Attribute to Them</div>
 </div>
-<button class="trigger_popup_fricc finishbutton">Get Results!</button>
+<button onclick="askfriendshiplevel()" class="trigger_popup_fricc finishbutton">Get Results!</button>
 </div>
 
-<div class="hover_bkgr_fricc">
+<div id="hover_bkgr_fricc" class="hover_bkgr_fricc">
     <span class="helper"></span>
     <div>
-        <div class="popupCloseButton">&times;</div>
+        <div onclick="hide()" class="popupCloseButton">&times;</div>
         <div id="popup"></div>
     </div>
 </div>
 </body>
 <script>
-    $(window).load(function () {
-    $(".trigger_popup_fricc").click(function(){
-       $('.hover_bkgr_fricc').show();
-       askfriendshiplevel()
-       writepopupboxtext()
-    });
 
-    $('.popupCloseButton').click(function(){
-        $('.hover_bkgr_fricc').hide();
-    });
-});
+
 setInterval(function() { tick(); }, 250);
 
 </script>
